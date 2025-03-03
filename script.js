@@ -23,10 +23,12 @@ document.querySelector("#addTask").addEventListener("click", () => {
                 </div>
             </div>
             <div class="col-1 d-flex justify-content-center align-items-center">
-                <span class="material-symbols-outlined">close</span>
+                <button class="btn btn-light closeTask">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
             </div>
         </div>
-    </li>`
+    </li>`;
 
     document.querySelector("#todoInput").value = "";
     document.querySelector("#taskDescription").value = "";
@@ -36,3 +38,20 @@ document.querySelector("#addTask").addEventListener("click", () => {
 
 })
 
+
+    // document.getElementById("closeTask").addEventListener("click", function () {
+    //     this.closest("li").remove(); // Removes the entire <li> element
+    // });
+
+// document.querySelectorAll(".closeTask").forEach(taskToClose) => {
+//     taskToClose.addEventListener("click", (e) => {
+//         e.target.parentElement.remove();
+//     })
+// }
+
+const tasks = document.querySelectorAll(".closeTask");
+tasks.forEach(task) => {
+    task.addEventListener("click", (e) => {
+        console.log(`yay`)
+    })
+}
