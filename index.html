@@ -13,46 +13,34 @@
 
 <body>
     <!-- main -->
-    <main class="d-flex justify-content-center align-items-center" style="width: 100vw; height: 100vh">
+    <main class="d-flex flex-column justify-content-center align-items-center" style="width: 100vw; height: 100vh">
         <div class="card shadow" style="width: 60%">
-            <div class="card-header py-2 d-flex">
-                <h4>Task</h4>
+            <div class="card-header py-2 d-flex justify-content-center align-items-center py-4">
+                <div>
+                    <small class="display-5 fw-bold">Task</small> <br>
+                    <small>Write down your to-do list here 😊</small>
+                </div>
                 <button class="btn btn-dark ms-auto" data-bs-toggle="modal" data-bs-target="#newTaskModal"
                     id="createTask">
                     Create Task
                 </button>
             </div>
             <div class="card-body">
-                <ul id="taskList" class="list-group">
-                    <li class="list-group-item d-flex align-items-center gap-3">
-                        <!-- checkbox -->
-                        <span class="material-symbols-outlined me-4" style="color: lightgray">task_alt</span>
-                        <!-- task -->
-                        <h3 id="task">Sample Task</h3>
-                        <small>Task Description</small>
-                        <!-- close button -->
-                        <button class="btn btn-light closeTask ms-auto">
-                            <span class="material-symbols-outlined">close</span>
-                        </button>
-                    </li>
+                <ul id="taskList" class="list-group py-4">
+                   <!-- task here -->
                 </ul>
 
-                <h5 class="mt-3">Completed</h5>
-                <ul id="CompletedTaskList" class="list-group">
-                    <li class="list-group-item d-flex align-items-center gap-3">
-                        <!-- checkbox -->
-                        <span class="material-symbols-outlined me-4" style="color: green">task_alt</span>
-                        <!-- task -->
-                        <h3 id="task" style="text-decoration: line-through;">Sample Task</h3>
-                        <small style="text-decoration: line-through;">Task Description</small>
-                        <!-- close button -->
-                        <button class="btn btn-light closeTask ms-auto">
-                            <span class="material-symbols-outlined">close</span>
-                        </button>
-                    </li>
+                <hr>
+                <h5 class="mt-3 pt-3">Completed</h5>
+                <ul id="CompletedTaskList" class="list-group pb-5">
+                    <!-- completed task here -->
                 </ul>
             </div>
         </div>
+
+        <footer>
+            <p class="mt-3">Developed by <b>Vaughn Barit</b></p>
+        </footer>
     </main>
 
     <!-- modal -->
