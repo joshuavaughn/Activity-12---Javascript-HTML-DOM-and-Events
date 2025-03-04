@@ -9,25 +9,14 @@ document.querySelector("#addTask").addEventListener("click", () => {
     const description = document.querySelector("#taskDescription").value;
 
     document.querySelector("#taskList").innerHTML += `
-    <li class="list-group-item">
-        <div class="row">
-            <div class="col-1 d-flex justify-content-center align-items-center">
-                <span class="material-symbols-outlined" style="color: lightgray;">task_alt</span>
-            </div>
-            <div class="col">
-                <div class="row">
-                    <h3>${task}</h3>
-                </div>
-                <div class="row">
-                    <small>${description}</small>
-                </div>
-            </div>
-            <div class="col-1 d-flex justify-content-center align-items-center">
-                <button class="btn btn-light closeTask">
-                    <span class="material-symbols-outlined">close</span>
-                </button>
-            </div>
-        </div>
+    <li class="list-group-item d-flex align-items-center gap-3">
+        <span class="material-symbols-outlined me-4" style="color: lightgray">task_alt</span>
+
+        <h3 id="task">${task}</h3>
+        <small>${description}</small>
+        <button class="btn btn-light closeTask ms-auto">
+            <span class="material-symbols-outlined">close</span>
+        </button>
     </li>`;
 
     document.querySelector("#todoInput").value = "";
@@ -37,38 +26,31 @@ document.querySelector("#addTask").addEventListener("click", () => {
     myModal.click();
 
     const tasks = document.querySelectorAll(".closeTask");
-    console.log(tasks);
     tasks.forEach((task) => {
-        console.log(task);
         task.addEventListener("click", (e) => {
-            console.log(`button clicked!`);
+            let grandparent  = e.target.closest("li");
+
+            let currentTask = grandparent.children[1].innerHTML;
+            let currentTaskDescription = grandparent.children[2].innerHTML;
+
             e.target.closest("li").remove();
+
+            completed (currentTask, currentTaskDescription);
         })
     })
 
-    // function closeTask (array) {
-    //     console.log(`we are at closeTask fuction`);
-    //     for (let i = 0; i < array.length; i++) {
-    //         console.log(`task ${i + 1}: ${array[i]}`);
-    //     }
-    // }
 })
 
+function completed (task, description) {
+    document.querySelector("#CompletedTaskList").innerHTML += `
+    <li class="list-group-item d-flex align-items-center gap-3">
+        <span class="material-symbols-outlined me-4" style="color: green">task_alt</span>
 
-    // document.getElementById("closeTask").addEventListener("click", function () {
-    //     this.closest("li").remove(); // Removes the entire <li> element
-    // });
+        <h3 id="task" style="text-decoration: line-through;">${task}</h3>
+        <small style="text-decoration: line-through;">${description}</small>
+        <button class="btn btn-light closeTask ms-auto">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </li>`;
+}
 
-// document.querySelectorAll(".closeTask").forEach(taskToClose) => {
-//     taskToClose.addEventListener("click", (e) => {
-//         e.target.parentElement.remove();
-//     })
-// }
-
-const tasks = document.querySelectorAll(".closeTask");
-console.log(tasks);
-// tasks.forEach(task) => {
-//     task.addEventListener("click", (e) => {
-//         console.log(`yay`)
-//     })
-// }
