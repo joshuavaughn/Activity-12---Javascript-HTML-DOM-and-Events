@@ -36,6 +36,22 @@ document.querySelector("#addTask").addEventListener("click", () => {
     const myModal = document.querySelector("#closeModal");
     myModal.click();
 
+    const tasks = document.querySelectorAll(".closeTask");
+    console.log(tasks);
+    tasks.forEach((task) => {
+        console.log(task);
+        task.addEventListener("click", (e) => {
+            console.log(`button clicked!`);
+            e.target.closest("li").remove();
+        })
+    })
+
+    // function closeTask (array) {
+    //     console.log(`we are at closeTask fuction`);
+    //     for (let i = 0; i < array.length; i++) {
+    //         console.log(`task ${i + 1}: ${array[i]}`);
+    //     }
+    // }
 })
 
 
@@ -50,8 +66,9 @@ document.querySelector("#addTask").addEventListener("click", () => {
 // }
 
 const tasks = document.querySelectorAll(".closeTask");
-tasks.forEach(task) => {
-    task.addEventListener("click", (e) => {
-        console.log(`yay`)
-    })
-}
+console.log(tasks);
+// tasks.forEach(task) => {
+//     task.addEventListener("click", (e) => {
+//         console.log(`yay`)
+//     })
+// }
