@@ -42,6 +42,8 @@ document.querySelector("#addTask").addEventListener("click", () => {
             let currentTaskDescription = grandparent.children[2].innerHTML;
 
             completed (currentTask, currentTaskDescription);
+
+            e.target.closest("li").remove();
         })
     })
 
@@ -54,9 +56,6 @@ function completed (task, description) {
 
         <h3 id="task" style="text-decoration: line-through;">${task}</h3>
         <small style="text-decoration: line-through;">${description}</small>
-        <button class="btn d-flex justify-content-center align-items-center closeTask ms-auto">
-            <span class="material-symbols-outlined">close</span>
-        </button>
     </li>`;
 }
 
